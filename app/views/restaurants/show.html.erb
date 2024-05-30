@@ -1,2 +1,13 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1>Restaurants</h1>
+<ul>
+  <li>
+    <%= @restaurant.name %>
+    <% if params[:action] == "show" %>
+      <%= @restaurant.address %>
+      <%= @restaurant.phone_number %>
+      <% @restaurant.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    <% end %>
+  </li>
+</ul>
