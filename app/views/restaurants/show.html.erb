@@ -1,13 +1,6 @@
+<div class="container mt-4">
 <h1>Restaurants</h1>
-<ul>
-  <li>
-    <%= @restaurant.name %>
-    <% if params[:action] == "show" %>
-      <%= @restaurant.address %>
-      <%= @restaurant.phone_number %>
-      <% @restaurant.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
-    <% end %>
-  </li>
-</ul>
+  <%= render "restaurant", restaurant: @restaurant %>
+
+  <%= link_to "Go back", restaurants_path %> | <%= link_to "Add a Review", new_restaurant_review_path(@restaurant) %> | <%= link_to "See all reviews", restaurant_reviews_path(@restaurant.id) %>
+</div>
